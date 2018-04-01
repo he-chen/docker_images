@@ -1,5 +1,9 @@
 FROM nodered/node-red-docker:0.18.4-slim-v8 as builder
 
+LABEL description="Build container for node red with home assistant nodes" \
+      maintainer="sean.v.775@gmail.com"
+
+
 # Add packages needed to build native dependencies
 USER root
 RUN apk add --no-cache \
