@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:stretch-slim
 
 LABEL description="Container for starting weechat" \
       maintainer="sean.v.775@gmail.com"
@@ -15,10 +15,11 @@ RUN apt-get update \
     && update-locale LC_ALL=${LC_ALL} LANG=${LANG}
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends ca-certificates \
+    && apt-get install -y --no-install-recommends apt-transport-https \
+                                                  ca-certificates \
                                                   dirmngr \
                                                   gnupg \
-    && echo "deb https://weechat.org/debian buster main" > /etc/apt/sources.list.d/weechat.list \
+    && echo "deb https://weechat.org/debian stretch main" > /etc/apt/sources.list.d/weechat.list \
     && apt-key adv --keyserver ipv4.pool.sks-keyservers.net --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E \
     && apt-get update \
     && apt-get install -y --no-install-recommends openssh-server \
