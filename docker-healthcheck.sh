@@ -2,4 +2,4 @@
 
 PORT=8123
 
-curl -ILs --fail --max-time 10 https://localhost:${PORT}
+curl -kLs --fail --max-time 10 http://localhost:${PORT}
