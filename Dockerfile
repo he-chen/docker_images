@@ -17,7 +17,7 @@ RUN apk add --no-cache \
 
 WORKDIR /usr/src/node-red/
 
-RUN npm install node-red-contrib-home-assistant@0.3.0
+RUN npm install node-red-contrib-home-assistant@0.3.1
 
 FROM nodered/node-red-docker:0.18.4-slim-v8
 
