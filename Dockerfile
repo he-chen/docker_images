@@ -1,4 +1,4 @@
-FROM nodered/node-red-docker:0.18.5-slim-v8 as builder
+FROM nodered/node-red-docker:0.18.7-slim-v8 as builder
 
 LABEL description="Build container for node red with home assistant nodes" \
       maintainer="sean.v.775@gmail.com"
@@ -17,9 +17,10 @@ RUN apk add --no-cache \
 
 WORKDIR /usr/src/node-red/
 
-RUN npm install node-red-contrib-home-assistant@0.3.2
+RUN  npm install node-red-contrib-home-assistant@0.3.2 \
+  && npm install node-red-contrib-bigtimer@1.9.2
 
-FROM nodered/node-red-docker:0.18.5-slim-v8
+FROM nodered/node-red-docker:0.18.7-slim-v8
 
 LABEL description="Node red container with home assistant nodes" \
       maintainer="sean.v.775@gmail.com"
